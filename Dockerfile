@@ -1,36 +1,26 @@
-# Usa una imagen de Node.js optimizada para producción
-FROM node:18-alpine as build
+# Etapa 1: Construcción del JAR
+FROM maven:3.9.6-eclipse-temurin-17 AS builder
 
-# Establecer el directorio de trabajo
 WORKDIR /app
 
-# Copiar archivos del proyecto
-COPY package.json package-lock.json ./
+# Copiar archivos de configuración y dependencias
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-# Instalar dependencias
-RUN npm install
+# Copiar el código fuente y compilar
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copiar el resto del código fuente
-COPY . .
+# Etapa 2: Ejecutar la aplicación
+FROM eclipse-temurin:17-jdk
 
-# Construir la aplicación para producción
-RUN npm run build
-
-# Segunda etapa: Servidor en Node.js con Express para producción
-FROM node:18-alpine
-
-# Establecer el directorio de trabajo
 WORKDIR /app
 
-# Instalar solo las dependencias de producción
-RUN npm install -g serve
+# Copiar el JAR generado en la etapa anterior
+COPY --from=builder /app/target/*.jar app.jar
 
-# Copiar archivos de la compilación
-COPY --from=build /app/dist /app/dist
+# Exponer el puerto 8080
+EXPOSE 8080
 
-# Exponer el puerto 3005
-EXPOSE 3005
-
-# Comando de inicio: Servir la aplicación en el puerto 3005
-CMD ["serve", "-s", "dist", "-l", "3005"]
-
+# Comando para ejecutar la aplicación
+ENTRYPOINT ["java", "-jar", "app.jar"]
