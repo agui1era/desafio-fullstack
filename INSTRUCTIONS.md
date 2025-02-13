@@ -7,7 +7,7 @@ Se utiliza **H2 como base de datos en memoria**, **Spring Data JPA**, y **Swagge
 ✔ API RESTful con CRUD de usuarios  
 ✔ Documentación generada automáticamente con OpenAPI/Swagger  
 ✔ Base de datos en memoria **H2**  
-✔ Desplegable con **Docker y Docker**  
+✔ Desplegable con **Docker y Docker Compose**  
 
 ---
 
@@ -15,7 +15,7 @@ Se utiliza **H2 como base de datos en memoria**, **Spring Data JPA**, y **Swagge
 Para ejecutar el proyecto, necesitas instalar:
 - [JDK 17](https://adoptium.net/)
 - [Apache Maven](https://maven.apache.org/)
-- [Docker )](https://www.docker.com/)
+- [Docker](https://www.docker.com/)
 
 ---
 
@@ -38,7 +38,7 @@ springdoc.swagger-ui.enabled=true
 
 ---
 
-## 🏗 **Construcción y Ejecución**
+## 🏗 **Construcción y Ejecución del Backend**
 
 ### 📌 **Ejecutar con Maven**
 ```bash
@@ -56,6 +56,32 @@ java -jar target/*.jar
 docker build -t desafio-previred .
 docker run -p 8080:8080 desafio-previred
 ```
+
+---
+
+## 🏗 **Construcción y Ejecución del Frontend**
+
+### 📌 **Ejecutar en modo desarrollo**
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+### 📌 **Construir el frontend para producción**
+```bash
+npm run build
+```
+
+### 📌 **Ejecutar el frontend con Docker**
+```bash
+docker build -t frontend-app .
+docker run -p 3005:3005 frontend-app
+```
+
+
+El frontend estará disponible en:  
+➡ **`http://localhost:3005`**
 
 ---
 
@@ -103,4 +129,11 @@ curl -X PUT http://localhost:8080/usuarios/1      -H "Content-Type: application/
 curl -X DELETE http://localhost:8080/usuarios/1
 ```
 
+---
 
+## 📄 **Documentación API con Swagger**
+Una vez iniciado el backend, puedes acceder a la documentación generada automáticamente con OpenAPI/Swagger en:
+
+➡ **`http://localhost:8080/swagger-ui/index.html`**
+
+---

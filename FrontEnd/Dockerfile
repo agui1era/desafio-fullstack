@@ -33,4 +33,3 @@ EXPOSE 3005
 
 # Comando de inicio: Servir la aplicación en el puerto 3005
 CMD ["serve", "-s", "dist", "-l", "3005"]
-
