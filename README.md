@@ -1,51 +1,43 @@
-# Desafío Técnico para postulantes a Desarrolladores Fullstack
-![Status](https://img.shields.io/badge/Lifecycle-active-green)&nbsp; ![Release](https://img.shields.io/badge/Release-v1.0.0-purple)&nbsp; [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+Technical Challenge for Fullstack Developer Applicants
+Release License Status
 
-## Objetivos
->Este desafío tiene como objetivo evaluar tus habilidades como desarrollador Fullstack, especialmente en Java, Spring Boot, Node.js, React, y principios de desarrollo de software. 
+Objectives
+This challenge aims to assess your skills as a Fullstack developer, specifically in Java, Spring Boot, Node.js, React, and software development principles.
 
-## Requerimiento
+Requirements
+This challenge consists of developing a simple user interface using a Java user interface with Spring Boot as the backend, and a React front-end that allows CRUD to be performed through a simple interface.
 
-Esta prueba consiste en desarrollar un mantenedor de usuarios simple por medio de una API de usuarios utilizando Java con Spring Boot en el backend, y un front-end en React que permita realizar el CRUD a través de una interfaz sencilla.
-
-## Requisitos Técnicos
-
-### Backend
-
-- **Java 17**: Debes utilizar Java 17 para el desarrollo del backend.
-- **Spring Boot 3.4.x**: Crear una API RESTful utilizando Spring Boot 3.4.2 o la última disponible.
-- **OpenAPI & Diseño de APIs**: Debes exponer la API siguiendo las mejores prácticas en cuanto a la definición de rutas y estructura, preferentemente utilizando OpenAPI para el diseño y la documentación de la misma.
-- **Maven**: Debes emplear Apache Maven para la construcción del artefacto.
-- **CRUD de Usuarios**: La API debe ser capaz de realizar las siguientes operaciones CRUD sobre los usuarios:
-  - **Crear**: Registrar un nuevo usuario.
-  - **Leer**: Obtener una lista de usuarios o buscar por ID.
-  - **Actualizar**: Modificar la información de un usuario existente.
-  - **Eliminar**: Eliminar un usuario.
-- **Modelo de Usuario**: Los usuarios deben tener los siguientes atributos:
-  - `nombres`: String
-  - `apellidos`: String
-  - `rut`: Long
-  - `dv`: String
-  - `fechaNacimiento`: Date
-  - `correoElectronico`: String
-  - `contrasena`: String
-- **Persistencia**: Debes utilizar H2 como base de datos en memoria para almacenar los usuarios y el uso de JPA por medio de Spring Data.
-- **Separación de Capas**: Debe contener coherencia de separación de capas y distribución de packages.
-
-### Frontend
-
-- **React**: Debes crear una interfaz de usuario para administrar los usuarios utilizando React 17 o superior.
-- **Javascript y Typescript**: Debes usar JavaScript y TypeScript.
-- **Separación de Capas**: El código debe seguir un diseño de separación de responsabilidades entre componentes, servicios, y gestión de estado.
-- **Consumo de APIs**: El front-end debe interactuar con la API de backend para realizar las operaciones CRUD (crear, editar, eliminar, listar).
-- **Mantenedor de Usuarios**: La interfaz debe permitir realizar las siguientes acciones sobre los usuarios:
-  - Crear un nuevo usuario.
-  - Editar un usuario existente.
-  - Eliminar un usuario.
-  - Listar todos los usuarios.
-
-## Entregables
-
-- **Repositorio Git**: Envía tu desafío como un Pull Request a este repositorio indicando tu nombre, correo y cargo al que postulas. Todos los PR serán rechazados, no es un indicador de la prueba.
-- **Instrucciones de Ejecución**: Incluir un archivo `INSTRUCTIONS.md` con las instrucciones necesarias para ejecutar tanto el backend como el frontend o como los contenedores como Docker/Docker Compose si fueran empleados. Considere que no se utilizan IDEs para la revisión de los desafíos, por lo que las instrucciones deberán ser enfocadas para un entorno de ambiente pre productivo (terminal/consola).
-- **Documentación OpenAPI**: En el repositorio, debe incluir un archivo `openapi.yaml` con el diseño de la API de usuarios.
+Technical Requirements
+Backend
+Java 17: You must use Java 17 for backend development.
+Spring Boot 3.4.x: Create a RESTful API using Spring Boot 3.4.2 or the latest version available.
+OpenAPI & API Design: You must expose the API following best practices in defining routes and structure, preferably using OpenAPI for design and documentation.
+Maven: You must use Apache Maven to build the artifact.
+User CRUD: The API must be able to perform the following CRUD operations on users:
+Create: Register a new user.
+Read: Get a list of users or search by ID.
+Update: Modify an existing user's information.
+Delete: Delete a user.
+User Model: Users must have the following attributes:
+firstName: String
+lastName: String
+id: Long
+id: String
+birthDate: Date
+email: String
+password: String
+Persistence: You must use H2 as an in-memory database to store users and use JPA through Spring Data.
+Layer Separation: Must maintain consistent layer separation and package distribution.
+React Frontend: You must create a user interface to manage users using React 17 or higher.
+JavaScript and TypeScript: You must use JavaScript and TypeScript.
+Layer Separation: The code must follow a separation of responsibilities design between components, services, and state management.
+API Consumption: The front-end must interact with the back-end API to perform CRUD operations (create, edit, delete, list).
+User Maintainer: The interface must allow the following actions to be performed on users:
+Create a new user.
+Edit an existing user.
+Delete a user.
+List all users.
+Deliverables
+Git Repository: Submit your challenge as a Pull Request to this repository, indicating your name, email address, and the position you are applying for. All PRs will be rejected; this is not an indicator of testing.
+Execution Instructions: Include an INSTRUCTIONS.md file with the necessary instructions to run both the backend and frontend, or containers such as Docker/Docker Compose, if used. Please note that IDEs are not used for reviewing challenges, so the instructions should be tailored to a pre-production environment (terminal/console).
+OpenAPI Documentation: In the repository, you must include an openapi.yaml file with the user API design.
